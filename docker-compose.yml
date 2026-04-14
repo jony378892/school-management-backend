@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:15
+    container_name: school_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: school_admin
+      POSTGRES_PASSWORD: school_secret
+      POSTGRES_DB: school_management
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
